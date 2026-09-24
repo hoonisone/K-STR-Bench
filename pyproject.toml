@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kstrbench"
+version = "0.1.0"
+description = "K-STR-Bench preparation and evaluation tools"
+requires-python = ">=3.10"
+dependencies = [
+    "huggingface_hub",
+    "Pillow",
+    "tqdm",
+]
+
+[tool.setuptools]
+packages = [
+    "kstrbench",
+    "kstrbench.steps",
+    "kstrbench.eval",
+    "kstrbench.eval.steps",
+    "kstrbench.aihub",
+    "kstrbench.aihub.steps",
+    "kstrbench.aihub.helpers",
+]
+
+[tool.setuptools.package-data]
+"kstrbench.aihub" = ["resources/*"]
