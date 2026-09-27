@@ -2,7 +2,7 @@
 Collect scored infer CSVs into one summary table.
 
 One output row is a (regime, model, dataset, challenge) cell holding sample
-count, word accuracy and jaso-level 1-NED. An empty challenge means the whole
+count, word accuracy and grapheme-level similarity (1-GNED). An empty challenge means the whole
 dataset. A dataset may span several scored CSVs. Challenge tags for that
 dataset are the union of the text CSVs for those sources.
 """

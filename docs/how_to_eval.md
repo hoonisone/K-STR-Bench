@@ -2,7 +2,7 @@
 
 This page scores **one inference file** against one K-STR-Bench subset.
 
-You provide the predictions. The tool looks up the official transcription for each sample, writes a scored CSV next to your file, and prints two averages: word accuracy and jaso-level 1-NED.
+You provide the predictions. The tool looks up the official transcription for each sample, writes a scored CSV next to your file, and prints two averages: word accuracy and grapheme-level similarity (1-GNED).
 
 You do not put ground-truth labels in the inference file. Labels come from the subset CSV already on disk.
 
@@ -110,13 +110,13 @@ The tool loads every `text_id` and `label` from that subset's label CSV. It then
 - A row whose `text_id` is not in the label CSV is **unmatched**. It stays in the output, with empty score columns. It is not averaged in.
 - A label-CSV sample that never appears in your file is only counted. It is not added to the output, and it is not treated as a wrong prediction.
 
-Word accuracy and jaso 1-NED are averages over matched rows only. If nothing matches, both are printed as `n/a`.
+Word accuracy and 1-GNED are averages over matched rows only. If nothing matches, both are printed as `n/a`.
 
 Spaces are removed before comparison, so `퀸 노래방` and `퀸노래방` match. Upper and lower case stay different, so `Cafe` and `cafe` do not match.
 
 **Word accuracy** is the fraction of matched rows whose prediction equals the official label. `is_match` is `1` or `0`. One different character makes that row `0`.
 
-**Jaso 1-NED** is a softer score for Korean. Each Hangul syllable is split into choseong, jungseong, and jongseong, and those units are compared with edit distance. `1` means the jamo sequence matches. A lower number means the prediction is farther from the label. A row can have `is_match` `0` and still have a high jaso score.
+**Grapheme-level similarity (1-GNED)** is a softer score for Korean. Each Hangul syllable is split into choseong, jungseong, and jongseong, and those units are compared with edit distance. `1` means the jamo sequence matches. A lower number means the prediction is farther from the label. A row can have `is_match` `0` and still have a high 1-GNED.
 
 If a label contains `□`, that character may stand for zero or one predicted character and does not count against the model. It marks a glyph the annotator could not read.
 
@@ -135,13 +135,13 @@ Your original inference file is left as it is. New files are written beside it.
 `preds.csv` from a TXT or JSONL run has only `text_id` and `infer`. `preds.eval.csv` is the file to keep. It has the prediction, the official label, and the two scores:
 
 ```text
-text_id,infer,label,is_match,jaso_1_ned
+text_id,infer,label,is_match,1-GNED
 gist_12_3,치킨,치킨,1,1.000000
 gist_12_4,친친,치킨,0,0.666667
 not_in_gist,카페,,,
 ```
 
-The third row was not in `GIST_Signboard`, so `label`, `is_match`, and `jaso_1_ned` are empty. If your CSV had other columns, they are copied into `preds.eval.csv` as well. Any `label` column you already had is replaced by the official label.
+The third row was not in `GIST_Signboard`, so `label`, `is_match`, and `1-GNED` are empty. If your CSV had other columns, they are copied into `preds.eval.csv` as well. Any `label` column you already had is replaced by the official label.
 
 ## 5. How to read the printout
 
@@ -155,14 +155,14 @@ matched           : 2
 unmatched infer   : 1
 unmatched dataset : 35244
 accuracy          : 0.500000
-jaso_1_ned        : 0.833333
+1-GNED            : 0.833333
 challenges
-  artistic         samples=1  ACC=1.000000  1-G_NED=1.000000
-  curve            samples=1  ACC=0.000000  1-G_NED=0.666667
-  salient          samples=0  ACC=n/a       1-G_NED=n/a
-  incomplete       samples=0  ACC=n/a       1-G_NED=n/a
-  multi_oriented   samples=0  ACC=n/a       1-G_NED=n/a
-  low_visibility   samples=0  ACC=n/a       1-G_NED=n/a
+  artistic         samples=1  ACC=1.000000  1-GNED=1.000000
+  curve            samples=1  ACC=0.000000  1-GNED=0.666667
+  salient          samples=0  ACC=n/a       1-GNED=n/a
+  incomplete       samples=0  ACC=n/a       1-GNED=n/a
+  multi_oriented   samples=0  ACC=n/a       1-GNED=n/a
+  low_visibility   samples=0  ACC=n/a       1-GNED=n/a
 ```
 
 Read it from the top.
@@ -172,8 +172,8 @@ Read it from the top.
 3. `inference results` is the number of rows in your file. Here it is 3.
 4. `matched` is how many of those rows were found in the subset. Here it is 2. `unmatched infer` is the rest. 2 + 1 = 3.
 5. `unmatched dataset` is how many samples in the subset label CSV do not appear in your file. It is a coverage count. Those samples are not scored as errors.
-6. `accuracy` is the mean of `is_match` over the 2 matched rows. `jaso_1_ned` is the mean of the jaso scores over those same rows.
-7. `challenges` appears for GIST and KAIST. `samples` is how many matched rows carry that tag. `ACC` and `1-G_NED` are the means over those rows only. `samples=0` means none of your matched predictions have that tag.
+6. `accuracy` is the mean of `is_match` over the 2 matched rows. `1-GNED` is the mean of the grapheme scores over those same rows.
+7. `challenges` appears for GIST and KAIST. `samples` is how many matched rows carry that tag. `ACC` and `1-GNED` are the means over those rows only. `samples=0` means none of your matched predictions have that tag.
 
 `unmatched dataset` is often large. The label CSV holds the whole subset. `AIHub_Standardized` includes train, val, and test. `GIST_Signboard` and `KAIST_Corrected` include every text row in their CSV, not only one split. Predicting the test list alone leaves the other rows in this count. Check `matched` and `unmatched infer` first. Those two describe your file.
 

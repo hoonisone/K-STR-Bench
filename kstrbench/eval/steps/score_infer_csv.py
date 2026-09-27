@@ -1,5 +1,5 @@
 """
-Score infer/label pairs in a CSV: word accuracy and jaso-level 1-NED.
+Score infer/label pairs in a CSV: word accuracy and grapheme-level similarity (1-GNED).
 
 A wildcard in the label matches zero or one predicted token at no cost,
 so illegible characters do not count against the model.

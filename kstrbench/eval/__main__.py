@@ -18,7 +18,7 @@ TEXT_ID_COL = "text_id"
 INFER_COL = "infer"
 LABEL_COL = "label"
 MATCH_COL = "is_match"
-JASO_COL = "jaso_1_ned"
+JASO_COL = "1-GNED"
 
 DATASETS = (AIHUB, GIST, KAIST)
 
@@ -208,7 +208,7 @@ def format_challenge_line(name: str, count: int, accuracy: float, jaso_1_ned: fl
     jaso_text = "n/a" if count == 0 else f"{jaso_1_ned:.6f}"
     return (
         f"  {name:<16} samples={count:>{sample_width}}  "
-        f"ACC={acc_text:<8}  1-G_NED={jaso_text}"
+        f"ACC={acc_text:<8}  1-GNED={jaso_text}"
     )
 
 
@@ -299,10 +299,10 @@ def main() -> None:
     print(f"unmatched dataset : {unmatched_dataset}")
     if matched == 0:
         print("accuracy          : n/a")
-        print("jaso_1_ned        : n/a")
+        print("1-GNED            : n/a")
     else:
         print(f"accuracy          : {accuracy:.6f}")
-        print(f"jaso_1_ned        : {jaso_1_ned:.6f}")
+        print(f"1-GNED            : {jaso_1_ned:.6f}")
     if tagged:
         print("challenges")
         challenge_rows = challenge_means(matched_scores, tagged)

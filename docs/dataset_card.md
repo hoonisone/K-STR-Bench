@@ -61,7 +61,7 @@ Each text sample is keyed by `text_id`. A row points back to its scene with `sce
 
 ## Evaluation
 
-Score matched predictions with word accuracy and jaso-level 1-NED. On GIST_Signboard and KAIST_Corrected, report the same two scores for each challenge tag.
+Score matched predictions with word accuracy and grapheme-level similarity (1-GNED). On GIST_Signboard and KAIST_Corrected, report the same two scores for each challenge tag.
 
 The scoring command and file format are documented in the GitHub repository.
 
