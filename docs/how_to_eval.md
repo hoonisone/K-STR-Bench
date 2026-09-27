@@ -120,7 +120,7 @@ Spaces are removed before comparison, so `퀸 노래방` and `퀸노래방` matc
 
 If a label contains `□`, that character may stand for zero or one predicted character and does not count against the model. It marks a glyph the annotator could not read.
 
-For `GIST_Signboard` and `KAIST_Corrected`, the same two averages are also printed for each challenge tag. A matched row is included in a tag when that sample's label-CSV flag is true: `artistic`, `curve`, `sailent`, `incomplete`, `multi_oriented`, and `low_visibility`. One sample can belong to more than one tag, and then it counts in each of those averages. A tag with no matched row is printed as `n/a`. `AIHub_Standardized` has no challenge tags, so that block is omitted.
+For `GIST_Signboard` and `KAIST_Corrected`, the same two averages are also printed for each challenge tag. A matched row is included in a tag when that sample's label-CSV flag is true: `artistic`, `curve`, `salient`, `incomplete`, `multi_oriented`, and `low_visibility`. One sample can belong to more than one tag, and then it counts in each of those averages. A tag with no matched row is printed as `n/a`. `AIHub_Standardized` has no challenge tags, so that block is omitted.
 
 ## 4. What is saved
 
@@ -159,7 +159,7 @@ jaso_1_ned        : 0.833333
 challenges
   artistic         samples=1  ACC=1.000000  1-G_NED=1.000000
   curve            samples=1  ACC=0.000000  1-G_NED=0.666667
-  sailent          samples=0  ACC=n/a       1-G_NED=n/a
+  salient          samples=0  ACC=n/a       1-G_NED=n/a
   incomplete       samples=0  ACC=n/a       1-G_NED=n/a
   multi_oriented   samples=0  ACC=n/a       1-G_NED=n/a
   low_visibility   samples=0  ACC=n/a       1-G_NED=n/a

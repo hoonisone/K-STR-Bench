@@ -63,7 +63,7 @@ summary_dataset_sources = {
 challenges = [
     "KSTR_is_artistic",
     "KSTR_is_curve",
-    "KSTR_is_sailent",
+    "KSTR_is_salient",
     "KSTR_is_incomplete",
     "KSTR_is_multi_oriented",
     "KSTR_is_low_visibility",

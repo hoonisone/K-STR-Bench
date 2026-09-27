@@ -38,7 +38,7 @@ Korean-only counts are the samples used for K-STR-Bench. Train, val, and test fo
 
 GIST_Signboard and KAIST_Corrected also carry challenge tags on the Korean-only test samples. A sample may have more than one tag.
 
-| Subset | Artistic | Curve | Sailent | Incomplete | Multi-oriented | Low-visibility |
+| Subset | Artistic | Curve | Salient | Incomplete | Multi-oriented | Low-visibility |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | KAIST_Corrected | 563 | 128 | 446 | 56 | 411 | 282 |
 | GIST_Signboard | 2,511 | 351 | 2,795 | 711 | 4,189 | 1,070 |

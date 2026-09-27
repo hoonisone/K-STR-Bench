@@ -26,7 +26,7 @@ DATASETS = (AIHUB, GIST, KAIST)
 CHALLENGES = (
     ("artistic", "KSTR_is_artistic"),
     ("curve", "KSTR_is_curve"),
-    ("sailent", "KSTR_is_sailent"),
+    ("salient", "KSTR_is_salient"),
     ("incomplete", "KSTR_is_incomplete"),
     ("multi_oriented", "KSTR_is_multi_oriented"),
     ("low_visibility", "KSTR_is_low_visibility"),

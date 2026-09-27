@@ -16,7 +16,7 @@ TEXT_CSV = {
 CHALLENGE_FILES = (
     ("KSTR_is_artistic", "artistic.txt"),
     ("KSTR_is_curve", "curve.txt"),
-    ("KSTR_is_sailent", "sailent.txt"),
+    ("KSTR_is_salient", "salient.txt"),
     ("KSTR_is_incomplete", "incomplete.txt"),
     ("KSTR_is_multi_oriented", "multi_oriented.txt"),
     ("KSTR_is_low_visibility", "low_visibility.txt"),

@@ -167,7 +167,7 @@ python -m kstrbench.make_label
 ├── test.txt
 ├── artistic.txt
 ├── curve.txt
-├── sailent.txt
+├── salient.txt
 ├── incomplete.txt
 ├── multi_oriented.txt
 └── low_visibility.txt
