@@ -3,7 +3,7 @@
 **K-STR-Bench: A Challenge-Aware Benchmark Suite for Korean Scene Text Recognition**  
 Myounghun Han, Jin-Hyuk Hong · ACCV 2026
 
-[Paper](#citation) | [GitHub](https://github.com/hoonisone/K-STR-Bench) | [Hugging Face](https://huggingface.co/datasets/hoonisone/K-STR-Bench) | Experiments (will be released soon)
+[Paper](#citation) | [GitHub](https://github.com/hoonisone/K-STR-Bench) | [Hugging Face](https://huggingface.co/datasets/hoonisone/K-STR-Bench)
 
 A challenge-aware benchmark suite for Korean scene text recognition. It unifies three subsets under one evaluation protocol:
 
